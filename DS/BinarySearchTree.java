@@ -10,71 +10,55 @@ class BinarySearchTree<T extends Comparable<T>> {
 
 		if (root == null) return new TreeNode(d);
 
-		if (d.compareTo(root.data) < 0) root.left = insert(root.left, d);
+		if (root.data.compareTo(d) > 0) root.left = insert(root.left, d);
 		else root.right = insert(root.right, d);
 
 		return root;
 	}
 
 
-	// void delete(T data) {
+	void delete(T data) {
 
-	// 	root = delete(root, data);
-	// }
-
-	// TreeNode delete(TreeNode root, T d) {
-
-	// 	TreeNode par = null, tmp = root;
-
-	// 	while(tmp != null) {
-
-	// 		if(tmp.data.compareTo(d) == 0) break;
-
-	// 		par = tmp;
-
-	// 		if(d.compareTo(tmp.data) < 0) tmp = tmp.left;
-	// 		else tmp = tmp.right;
-	// 	}
-
-	// 	// Node not exists
-	// 	if(tmp == null) return root;
-
-	// 	// Leaf Node
-	// 	if(tmp.left == null && tmp.right == null) {
-
-	// 		// Single Node in Tree
-	// 		if(par == null) return null;
-
-	// 		if(par.left == tmp) par.left = null;
-	// 		else par.right = null;
-
-	// 		return root;
-	// 	}
+		root = delete(root, data);
+	}
 
 
-	// 	// One Child
-	// 	if(tmp.left == null) {
+	TreeNode delete(TreeNode root, T d) {
 
-	// 		if(par == null) return root.right;
+		if (root == null) return null;
 
-	// 		return root;
-	// 	}
+		if (root.data.compareTo(d) == 0) {
 
-	// 	if(tmp.right == null) {
+			if (root.left == null && root.right == null) return null;
+			else if (root.left == null) return root.right;
+			else if (root.right == null) return root.left;
+			else {
 
-	// 		if(par.left)
-	// 	}
-	// }
+				TreeNode tmp = root.left, par = null;
 
-	// TreeNode deleteNode(TreeNode par, TreeNode tmp, TreeNode assign) {
+				while (tmp.right != null) {
+					par = tmp;
+					tmp = tmp.right;
+				}
 
-	// 	if(par == null) return assign
+				if (par != null) {
 
-	// 	if(par.left == tmp) par.left = assign;
-	// 	else par.right = assign;
+					par.right = tmp.left;
+					tmp.left = root.left;
+					tmp.right = root.right;
 
-	// 	return par;
-	// }
+				} else tmp.right = root.right;
+
+				return tmp;
+			}
+		}
+
+		if (root.data.compareTo(d) > 0) root.left = delete(root.left, d);
+		else root.right = delete(root.right, d);
+
+		return root;
+	}
+
 
 	TreeNode search(TreeNode root, T data) {
 
@@ -82,19 +66,23 @@ class BinarySearchTree<T extends Comparable<T>> {
 
 		if (root.data.compareTo(data) == 0) return root;
 
-		if (data.compareTo(root.data) < 0) return search(root.left, data);
+		if (root.data.compareTo(data) > 0) return search(root.left, data);
 		return search(root.right, data);
 	}
 
+
 	void traverse() {
+		System.out.print("\nTree: ");
 		preOrder(root);
+		System.out.println();
 	}
+
 
 	void preOrder(TreeNode root) {
 
 		if (root == null) return;
 
-		System.out.println(root.data);
+		System.out.print(root.data + " ");
 		preOrder(root.left);
 		preOrder(root.right);
 	}
