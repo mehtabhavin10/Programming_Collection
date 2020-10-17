@@ -14,18 +14,15 @@ class Sudoku {
 			{ 0, 0, 5, 2, 0, 6, 3, 0, 0 }
 		};
 
-		solve(m, 0, 0);
-
-		for (int arr[] : m) {
-
-			for (int i : arr) System.out.print(i + " ");
-			System.out.println();
-		}
+		solve(m);
+		print(m);
 	}
 
-	static boolean solve(int[][] board, int x, int y) {
+	static boolean solve(int[][] board) {
 
 		boolean noEmpty = true;
+
+		int row = -1, col = -1;
 
 		for (int i = 0; i < 9; i++) {
 
@@ -34,25 +31,29 @@ class Sudoku {
 				if (board[i][j] == 0) {
 
 					noEmpty = false;
-					boolean nothingSafe = true;
-
-					for (int k = 1; k <= 9; k++) {
-
-						if (isSafe(board, i, j, k)) {
-
-							nothingSafe = false;
-							board[i][j] = k;
-
-							if (solve(board, i, j)) return true;
-						}
-					}
-
-					if (nothingSafe) return false;
+					row = i;
+					col = j;
+					break;
 				}
 			}
 		}
 
 		if (noEmpty) return true;
+
+		for (int k = 1; k <= 9; k++) {
+
+			if (isSafe(board, row, col, k)) {
+
+				board[row][col] = k;
+
+				System.out.println(row + ", " + col + " - " + k);
+				print(board);
+
+				if (solve(board)) return true;
+				else board[row][col] = 0;
+			}
+		}
+
 		return false;
 	}
 
@@ -65,17 +66,25 @@ class Sudoku {
 
 		int rowStart = x - (x % 3), colStart = y - (y % 3);
 
-		for (int i = rowStart; i < rowStart + 3; i++) {
+		for (int i = rowStart; i < rowStart + 3; i++)
 
-			for (int j = colStart; j < colStart + 3; j++) {
-
-				if (i == x && j == y) continue;
+			for (int j = colStart; j < colStart + 3; j++)
 
 				if (m[i][j] == n) return false;
-			}
-		}
+
+
 
 
 		return true;
+	}
+
+	static void print(int[][] m) {
+
+		for (int arr[] : m) {
+
+			for (int i : arr) System.out.print(i + " ");
+			System.out.println();
+		}
+		System.out.println();
 	}
 }
