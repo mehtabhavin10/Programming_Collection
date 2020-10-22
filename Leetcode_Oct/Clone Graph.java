@@ -87,21 +87,21 @@ class Node {
 
 class Solution {
 
-    private Map<Node, Node> newmap = new HashMap();
+    Map<Node, Node> map = new HashMap<>();
 
     public Node cloneGraph(Node node) {
 
-        if (node == null) {
-            return null;
+        if (node == null) return null;
+
+        Node newNode = new Node(node.val);
+        map.put(node, newNode);
+
+        for (Node v : node.neighbors) {
+
+            if (!map.containsKey(v)) newNode.neighbors.add(cloneGraph(v));
+            else newNode.neighbors.add(map.get(v));
         }
-        if (newmap.containsKey(node)) {
-            return newmap.get(node);
-        }
-        Node cloned = new Node(node.val, new ArrayList<>());
-        newmap.put(node, cloned);
-        for (Node n : node.neighbors) {
-            cloned.neighbors.add(cloneGraph(n));
-        }
-        return  cloned;
+
+        return newNode;
     }
 }
