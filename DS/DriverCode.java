@@ -2,20 +2,32 @@ class DriverCode {
 
 	public static void main(String[] args) {
 
-		int[] a = {10, 8, 7, 9, 12, 11, 13};
+		Queue<Integer> q = new Queue<>();
 
-		AVLTree<Integer> avl = new AVLTree<>();
+		q.add(12);
+		q.add(24);
+		q.add(34);
+		q.add(56);
 
-		for (Integer i : a) avl.insert(i);
-		avl.traverse();
+		System.out.println(q.peek());
 
-		avl.delete(11);
-		avl.traverse();
+		q.remove();
+		q.remove();
 
-		avl.delete(12);
-		avl.traverse();
+		System.out.println(q.peek());
 
-		avl.delete(8);
-		avl.traverse();
+		q.add(89);
+
+		System.out.println(q.peek());
+
+		System.out.println(q.isEmpty());
+
+		q.remove();
+		q.remove();
+
+		System.out.println(q.isEmpty());
+
+		q.remove();
+		System.out.println(q.isEmpty());
 	}
 }

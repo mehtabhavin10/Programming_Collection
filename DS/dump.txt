@@ -66,3 +66,60 @@ class DriverCode {
 }
 
 		
+class DriverCode {
+
+	public static void main(String[] args) {
+
+		int[] a = {10, 8, 7, 9, 12, 11, 13};
+
+		AVLTree<Integer> avl = new AVLTree<>();
+
+		for (Integer i : a) avl.insert(i);
+		avl.traverse();
+
+		avl.delete(11);
+		avl.traverse();
+
+		avl.delete(12);
+		avl.traverse();
+
+		avl.delete(8);
+		avl.traverse();
+	}
+}
+
+
+class DriverCode {
+
+	public static void main(String[] args) {
+
+		Stack<Integer> stk = new Stack<>();
+
+		stk.push(12);
+		stk.push(24);
+		stk.push(34);
+		stk.push(56);
+
+		System.out.println(stk.peek());
+
+		stk.pop();
+		stk.pop();
+
+		System.out.println(stk.peek());
+
+		stk.push(89);
+
+		System.out.println(stk.peek());
+
+		System.out.println(stk.isEmpty());
+
+		stk.pop();
+		stk.pop();
+
+		System.out.println(stk.isEmpty());
+
+		stk.pop();
+		System.out.println(stk.isEmpty());
+	}
+}
+

@@ -164,4 +164,22 @@ class LinkedList<T> {
 
 		System.out.println();
 	}
+
+
+	T get(int index) {
+
+		if (head == null) return null;
+
+		Node tmp = head;
+
+		while (index-- > 0 && tmp != null) tmp = tmp.next;
+
+		if (tmp == null) return null;
+		return tmp.data;
+	}
+
+
+	boolean isEmpty() {
+		return head == null;
+	}
 }
