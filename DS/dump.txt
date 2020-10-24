@@ -123,3 +123,95 @@ class DriverCode {
 	}
 }
 
+
+class DriverCode {
+
+	public static void main(String[] args) {
+
+		StackUsingQueue<Integer> stk = new StackUsingQueue<>();
+
+		stk.push(12);
+		stk.push(24);
+		stk.push(34);
+		stk.push(56);
+
+		System.out.println(stk.peek());
+
+		stk.pop();
+		stk.pop();
+
+		System.out.println(stk.peek());
+
+		stk.push(89);
+
+		System.out.println(stk.peek());
+
+		System.out.println(stk.isEmpty());
+
+		stk.pop();
+		stk.pop();
+
+		System.out.println(stk.isEmpty());
+
+		stk.pop();
+		System.out.println(stk.isEmpty());
+	}
+}
+
+
+
+class DriverCode {
+
+	public static void main(String[] args) {
+
+		int[] key = {2, 3, 4, 3, 2, 4, 1, 5, 1, 4, 6};
+		int[] val = {12, 23, 34, 45, 56, 67, 78, 89, 43, 21, 34};
+		int size = 3;
+
+		LRUCache<Integer, Integer> lru = new LRUCache<>(size);
+
+		for (int i = 0; i < key.length; i++) {
+
+			lru.add(key[i], val[i]);
+			lru.display();
+		}
+	}
+}
+
+
+class DriverCode {
+
+	public static void main(String[] args) {
+
+		MinStack<Integer> stk = new MinStack<>();
+
+		stk.push(89);
+		stk.push(24);
+		stk.push(12);
+		stk.push(38);
+
+		System.out.println(stk.peek());
+		System.out.println(stk.getMin());
+
+		stk.pop();
+		stk.pop();
+
+		System.out.println(stk.peek());
+		System.out.println(stk.getMin());
+
+		stk.push(3);
+
+		System.out.println(stk.peek());
+		System.out.println(stk.getMin());
+
+		System.out.println(stk.isEmpty());
+
+		stk.pop();
+		stk.pop();
+
+		System.out.println(stk.isEmpty());
+
+		stk.pop();
+		System.out.println(stk.isEmpty());
+	}
+}

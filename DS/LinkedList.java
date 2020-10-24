@@ -12,9 +12,23 @@ class LinkedList<T> {
 
 
 	Node head, tail;
+	int capacity, size;
+
+
+	LinkedList() {
+
+		capacity = Integer.MAX_VALUE;
+	}
+
+	LinkedList(int max) {
+
+		capacity = max;
+	}
 
 
 	void insertBegin(T val) {
+
+		if (size >= capacity) return; // Exception
 
 		Node newNode = new Node(val);
 
@@ -27,10 +41,14 @@ class LinkedList<T> {
 		}
 
 		head = newNode;
+
+		size++;
 	}
 
 
 	void insertEnd(T val) {
+
+		if (size >= capacity) return;
 
 		Node newNode = new Node(val);
 
@@ -43,10 +61,14 @@ class LinkedList<T> {
 		}
 
 		tail = newNode;
+
+		size++;
 	}
 
 
 	void insertAt(T val, int i) {
+
+		if (size >= capacity) return;
 
 		if (i == 0) {
 
@@ -71,6 +93,8 @@ class LinkedList<T> {
 		newNode.prev = tmp;
 		tmp.next.prev = newNode;
 		tmp.next = newNode;
+
+		size++;
 	}
 
 
@@ -82,11 +106,14 @@ class LinkedList<T> {
 
 			head = null;
 			tail = null;
+			size--;
 			return;
 		}
 
 		head = head.next;
 		head.prev = null;
+
+		size--;
 	}
 
 
@@ -98,11 +125,13 @@ class LinkedList<T> {
 
 			head = null;
 			tail = null;
+			size--;
 			return;
 		}
 
 		tail = tail.prev;
 		tail.next = null;
+		size--;
 	}
 
 
@@ -131,6 +160,8 @@ class LinkedList<T> {
 
 		tmp.next.next.prev = tmp;
 		tmp.next = tmp.next.next;
+
+		size--;
 	}
 
 
@@ -181,5 +212,10 @@ class LinkedList<T> {
 
 	boolean isEmpty() {
 		return head == null;
+	}
+
+
+	int getSize() {
+		return size;
 	}
 }

@@ -7,6 +7,11 @@ class Stack<T> {
 		linkedList = new LinkedList<>();
 	}
 
+	Stack(int max) {
+
+		linkedList = new LinkedList<>(max);
+	}
+
 	void push(T data) {
 
 		linkedList.insertBegin(data);
@@ -22,6 +27,8 @@ class Stack<T> {
 
 
 	T peek() {
+
+		if (isEmpty()) return null;
 		return linkedList.get(0);
 	}
 
@@ -29,5 +36,9 @@ class Stack<T> {
 	boolean isEmpty() {
 
 		return linkedList.isEmpty();
+	}
+
+	int getSize() {
+		return linkedList.getSize();
 	}
 }

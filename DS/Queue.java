@@ -7,6 +7,11 @@ class Queue<T> {
 		linkedList = new LinkedList<>();
 	}
 
+	Queue(int max) {
+
+		linkedList = new LinkedList<>(max);
+	}
+
 	void add(T data) {
 
 		linkedList.insertEnd(data);
@@ -29,5 +34,9 @@ class Queue<T> {
 	boolean isEmpty() {
 
 		return linkedList.isEmpty();
+	}
+
+	int getSize() {
+		return linkedList.getSize();
 	}
 }

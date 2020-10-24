@@ -2,32 +2,35 @@ class DriverCode {
 
 	public static void main(String[] args) {
 
-		Queue<Integer> q = new Queue<>();
+		MinStackInteger stk = new MinStackInteger();
 
-		q.add(12);
-		q.add(24);
-		q.add(34);
-		q.add(56);
+		stk.push(89);
+		stk.push(24);
+		stk.push(12);
+		stk.push(38);
 
-		System.out.println(q.peek());
+		System.out.println(stk.peek());
+		System.out.println(stk.getMin());
 
-		q.remove();
-		q.remove();
+		stk.pop();
+		stk.pop();
 
-		System.out.println(q.peek());
+		System.out.println(stk.peek());
+		System.out.println(stk.getMin());
 
-		q.add(89);
+		stk.push(3);
 
-		System.out.println(q.peek());
+		System.out.println(stk.peek());
+		System.out.println(stk.getMin());
 
-		System.out.println(q.isEmpty());
+		System.out.println(stk.isEmpty());
 
-		q.remove();
-		q.remove();
+		stk.pop();
+		stk.pop();
 
-		System.out.println(q.isEmpty());
+		System.out.println(stk.isEmpty());
 
-		q.remove();
-		System.out.println(q.isEmpty());
+		stk.pop();
+		System.out.println(stk.isEmpty());
 	}
 }
