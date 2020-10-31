@@ -86,4 +86,33 @@ class BinarySearchTree<T extends Comparable<T>> {
 		preOrder(root.left);
 		preOrder(root.right);
 	}
+
+
+	void levelOrder() {
+
+		if (root == null) return;
+
+		Queue<TreeNode> q = new Queue<>();
+		q.add(root);
+
+
+		while (!q.isEmpty()) {
+
+			int size = q.getSize();
+
+			System.out.print("[ ");
+
+			while (size-- > 0) {
+
+				TreeNode curr = q.remove();
+				System.out.print(curr.data + " ");
+
+				if (curr.left != null) q.add(curr.left);
+				if (curr.right != null) q.add(curr.right);
+			}
+
+			System.out.println("]");
+		}
+
+	}
 }

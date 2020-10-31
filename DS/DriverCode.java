@@ -3,12 +3,23 @@ class DriverCode {
 	public static void main(String[] args) {
 
 
-		int[] a = {45, 23, 34, 89, 56, 67, 78, 12, 90};
+		int[] a = {10, 8, 7, 9, 12, 11, 13};
 
-		Heap<Integer> minHeap = new Heap<>(true);
+		BinarySearchTree<Integer> bst = new BinarySearchTree<>();
 
-		for (int i : a) minHeap.add(i);
+		for (Integer i : a) bst.insert(i);
+		bst.traverse();
 
-		while (!minHeap.isEmpty()) System.out.println(minHeap.remove());
+		bst.levelOrder();
+
+		bst.delete(11);
+		bst.traverse();
+
+		bst.delete(12);
+		bst.traverse();
+
+		bst.delete(8);
+		bst.traverse();
+
 	}
 }
