@@ -120,4 +120,8 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		}
 
 	}
+
+	public TreeNode getRoot() {
+		return root;
+	}
 }

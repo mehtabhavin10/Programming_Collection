@@ -1,13 +1,13 @@
 package DS.TreeDS;
 
 
-class TreeNode<T extends Comparable<? super T>> {
+public class TreeNode<T extends Comparable<? super T>> {
 
-	T data;
-	TreeNode left, right;
-	Integer height;
+	public T data;
+	public TreeNode left, right;
+	public Integer height;
 
-	TreeNode(T d) {
+	public TreeNode(T d) {
 
 		data = d;
 		height = 1;
