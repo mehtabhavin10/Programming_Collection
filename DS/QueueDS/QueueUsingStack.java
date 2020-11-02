@@ -1,26 +1,32 @@
-class QueueUsingStack<T> {
+package DS.QueueDS;
 
-	Stack<T> stk1, stk2;
+import DS.StackDS.Stack;
 
-	QueueUsingStack() {
+
+
+public class QueueUsingStack<T> {
+
+	private Stack<T> stk1, stk2;
+
+	public QueueUsingStack() {
 
 		stk1 = new Stack<>();
 		stk2 = new Stack<>();
 	}
 
-	QueueUsingStack(int max) {
+	public QueueUsingStack(int max) {
 
 		stk1 = new Stack<>(max);
 		stk2 = new Stack<>(max);
 	}
 
-	void add(T val) {
+	public void add(T val) {
 
 		stk1.push(val);
 	}
 
 
-	T remove() {
+	public T remove() {
 
 		if (!stk2.isEmpty()) return stk2.pop();
 		transfer();
@@ -28,7 +34,7 @@ class QueueUsingStack<T> {
 	}
 
 
-	T peek() {
+	public T peek() {
 
 		if (!stk2.isEmpty()) return stk2.peek();
 		transfer();
@@ -36,18 +42,18 @@ class QueueUsingStack<T> {
 	}
 
 
-	void transfer() {
+	public void transfer() {
 
 		while (!stk1.isEmpty()) stk2.push(stk1.pop());
 	}
 
 
-	boolean isEmpty() {
+	public boolean isEmpty() {
 		return stk1.isEmpty() && stk2.isEmpty();
 	}
 
 
-	int getSize() {
+	public int getSize() {
 		return stk1.getSize() + stk2.getSize();
 	}
 }

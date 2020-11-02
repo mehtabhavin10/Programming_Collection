@@ -1,29 +1,33 @@
-class StackUsingQueue<T> {
+package DS.StackDS;
 
-	Queue<T> q1, q2, tmp;
+import DS.QueueDS.Queue;
+
+public class StackUsingQueue<T> {
+
+	private Queue<T> q1, q2, tmp;
 
 
-	StackUsingQueue() {
+	public StackUsingQueue() {
 
 		q1 = new Queue<>();
 		q2 = new Queue<>();
 	}
 
 
-	StackUsingQueue(int max) {
+	public StackUsingQueue(int max) {
 
 		q1 = new Queue<>(max);
 		q2 = new Queue<>(max);
 	}
 
 
-	void push(T val) {
+	public void push(T val) {
 
 		q1.add(val);
 	}
 
 
-	T pop() {
+	public T pop() {
 
 		transfer();
 		T val = q1.remove();
@@ -33,7 +37,7 @@ class StackUsingQueue<T> {
 	}
 
 
-	T peek() {
+	public T peek() {
 
 		transfer();
 		T val = q1.peek();
@@ -43,23 +47,23 @@ class StackUsingQueue<T> {
 	}
 
 
-	boolean isEmpty() {
+	public boolean isEmpty() {
 		return q1.isEmpty();
 	}
 
 
-	int getSize() {
+	public int getSize() {
 		return q1.getSize();
 	}
 
 
-	void transfer() {
+	public void transfer() {
 
 		while (q1.getSize() > 1) q2.add(q1.remove());
 	}
 
 
-	void flipQueues() {
+	public void flipQueues() {
 
 		tmp = q1;
 		q1 = q2;

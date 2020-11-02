@@ -1,6 +1,10 @@
-class LinkedList<T> {
+package DS.LinkedListDS;
 
-	class Node {
+
+
+public class LinkedList<T> {
+
+	private class Node {
 
 		T data;
 		Node prev, next;
@@ -11,22 +15,22 @@ class LinkedList<T> {
 	}
 
 
-	Node head, tail;
-	int capacity, size;
+	private Node head, tail;
+	private int capacity, size;
 
 
-	LinkedList() {
+	public LinkedList() {
 
 		capacity = Integer.MAX_VALUE;
 	}
 
-	LinkedList(int max) {
+	public LinkedList(int max) {
 
 		capacity = max;
 	}
 
 
-	void insertBegin(T val) {
+	public void insertBegin(T val) {
 
 		if (size >= capacity) return; // Exception
 
@@ -46,7 +50,7 @@ class LinkedList<T> {
 	}
 
 
-	void insertEnd(T val) {
+	public void insertEnd(T val) {
 
 		if (size >= capacity) return;
 
@@ -66,7 +70,7 @@ class LinkedList<T> {
 	}
 
 
-	void insertAt(T val, int i) {
+	public void insertAt(T val, int i) {
 
 		if (size >= capacity) return;
 
@@ -98,7 +102,7 @@ class LinkedList<T> {
 	}
 
 
-	void deleteBegin() {
+	public void deleteBegin() {
 
 		if (head == null) return;
 
@@ -117,7 +121,7 @@ class LinkedList<T> {
 	}
 
 
-	void deleteEnd() {
+	public void deleteEnd() {
 
 		if (tail == null) return;
 
@@ -135,7 +139,7 @@ class LinkedList<T> {
 	}
 
 
-	void deleteAt(int i) {
+	public void deleteAt(int i) {
 
 		if (i == 0) {
 
@@ -165,7 +169,7 @@ class LinkedList<T> {
 	}
 
 
-	void traverse() {
+	public void traverse() {
 
 		Node tmp = head;
 
@@ -181,7 +185,7 @@ class LinkedList<T> {
 	}
 
 
-	void reverseTraverse() {
+	public void reverseTraverse() {
 
 		Node tmp = tail;
 
@@ -197,7 +201,7 @@ class LinkedList<T> {
 	}
 
 
-	T get(int index) {
+	public T get(int index) {
 
 		if (head == null) return null;
 
@@ -210,12 +214,12 @@ class LinkedList<T> {
 	}
 
 
-	boolean isEmpty() {
+	public boolean isEmpty() {
 		return head == null;
 	}
 
 
-	int getSize() {
+	public int getSize() {
 		return size;
 	}
 }

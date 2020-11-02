@@ -1,15 +1,18 @@
+package DS.TreeDS;
+
 import static java.lang.Math.max;
 
-class AVLTree<T extends Comparable<T>> {
 
-	TreeNode<T> root;
+public class AVLTree<T extends Comparable<T>> {
 
-	void insert(T v) {
+	private TreeNode<T> root;
+
+	public void insert(T v) {
 		root = insert(root, v);
 	}
 
 
-	TreeNode insert(TreeNode root, T v) {
+	private TreeNode insert(TreeNode root, T v) {
 
 		if (root == null) {
 
@@ -24,13 +27,13 @@ class AVLTree<T extends Comparable<T>> {
 	}
 
 
-	void delete(T data) {
+	public void delete(T data) {
 
 		root = delete(root, data);
 	}
 
 
-	TreeNode delete(TreeNode root, T d) {
+	private TreeNode delete(TreeNode root, T d) {
 
 		if (root == null) return null;
 
@@ -67,7 +70,7 @@ class AVLTree<T extends Comparable<T>> {
 	}
 
 
-	TreeNode balance(TreeNode root) {
+	private TreeNode balance(TreeNode root) {
 
 		root.height = max(height(root.left), height(root.right)) + 1;
 
@@ -110,17 +113,17 @@ class AVLTree<T extends Comparable<T>> {
 		return root;
 	}
 
-	int height(TreeNode node) {
+	private int height(TreeNode node) {
 
 		return (node == null) ? 0 : node.height;
 	}
 
-	int balFactor(TreeNode root) {
+	private int balFactor(TreeNode root) {
 
 		return height(root.left) - height(root.right);
 	}
 
-	TreeNode leftRotate(TreeNode root) {
+	private TreeNode leftRotate(TreeNode root) {
 
 		TreeNode newRoot = root.left;
 		root.left = newRoot.right;
@@ -132,7 +135,7 @@ class AVLTree<T extends Comparable<T>> {
 		return newRoot;
 	}
 
-	TreeNode rightRotate(TreeNode root) {
+	private TreeNode rightRotate(TreeNode root) {
 
 		TreeNode newRoot = root.right;
 		root.right = newRoot.left;
@@ -145,14 +148,14 @@ class AVLTree<T extends Comparable<T>> {
 	}
 
 
-	void traverse() {
+	public void traverse() {
 		System.out.print("\nTree: ");
 		preOrder(root);
 		System.out.println();
 	}
 
 
-	void preOrder(TreeNode root) {
+	private void preOrder(TreeNode root) {
 
 		if (root == null) return;
 

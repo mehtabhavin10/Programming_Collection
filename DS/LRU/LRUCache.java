@@ -1,14 +1,16 @@
+package DS.LRU;
+
 import java.util.*;
 
-class LRUCache<E, T> {
+public class LRUCache<E, T> {
 
 
-	Set<E> lru;
-	int capacity;
-	Map<E, T> map;
+	private Set<E> lru;
+	private int capacity;
+	private Map<E, T> map;
 
 
-	LRUCache(int size) {
+	public LRUCache(int size) {
 
 		lru = new LinkedHashSet<>();
 		capacity = size;
@@ -17,7 +19,7 @@ class LRUCache<E, T> {
 
 
 
-	T refer(E key) {
+	public T refer(E key) {
 
 		if (!lru.contains(key)) return null;
 
@@ -29,7 +31,7 @@ class LRUCache<E, T> {
 
 
 
-	void add(E key, T val) {
+	public void add(E key, T val) {
 
 		if (lru.contains(key)) lru.remove(key);
 		else if (lru.size() >= capacity) {
@@ -44,7 +46,7 @@ class LRUCache<E, T> {
 	}
 
 
-	void display() {
+	public void display() {
 
 		System.out.println();
 		for (E i : lru) System.out.println(i + " -> " + map.get(i));

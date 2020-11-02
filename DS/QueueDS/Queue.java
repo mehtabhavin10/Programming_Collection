@@ -1,24 +1,30 @@
-class Queue<T> {
+package DS.QueueDS;
 
-	LinkedList<T> linkedList;
+import DS.LinkedListDS.LinkedList;
 
-	Queue() {
+
+
+public class Queue<T> {
+
+	private LinkedList<T> linkedList;
+
+	public Queue() {
 
 		linkedList = new LinkedList<>();
 	}
 
-	Queue(int max) {
+	public Queue(int max) {
 
 		linkedList = new LinkedList<>(max);
 	}
 
-	void add(T data) {
+	public void add(T data) {
 
 		linkedList.insertEnd(data);
 	}
 
 
-	T remove() {
+	public T remove() {
 
 		T op = linkedList.get(0);
 		linkedList.deleteBegin();
@@ -26,17 +32,17 @@ class Queue<T> {
 	}
 
 
-	T peek() {
+	public T peek() {
 		return linkedList.get(0);
 	}
 
 
-	boolean isEmpty() {
+	public boolean isEmpty() {
 
 		return linkedList.isEmpty();
 	}
 
-	int getSize() {
+	public int getSize() {
 		return linkedList.getSize();
 	}
 }

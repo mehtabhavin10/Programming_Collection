@@ -1,3 +1,6 @@
+package DS.TreeDS;
+
+
 class TreeNode<T extends Comparable<? super T>> {
 
 	T data;

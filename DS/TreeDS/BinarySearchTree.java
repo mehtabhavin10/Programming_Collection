@@ -1,12 +1,17 @@
-class BinarySearchTree<T extends Comparable<T>> {
+package DS.TreeDS;
 
-	TreeNode<T> root;
+import DS.QueueDS.Queue;
 
-	void insert(T data) {
+
+public class BinarySearchTree<T extends Comparable<T>> {
+
+	private TreeNode<T> root;
+
+	public void insert(T data) {
 		root = insert(root, data);
 	}
 
-	TreeNode insert(TreeNode root, T d) {
+	public TreeNode insert(TreeNode root, T d) {
 
 		if (root == null) return new TreeNode(d);
 
@@ -17,13 +22,13 @@ class BinarySearchTree<T extends Comparable<T>> {
 	}
 
 
-	void delete(T data) {
+	public void delete(T data) {
 
 		root = delete(root, data);
 	}
 
 
-	TreeNode delete(TreeNode root, T d) {
+	public TreeNode delete(TreeNode root, T d) {
 
 		if (root == null) return null;
 
@@ -60,7 +65,7 @@ class BinarySearchTree<T extends Comparable<T>> {
 	}
 
 
-	TreeNode search(TreeNode root, T data) {
+	public TreeNode search(TreeNode root, T data) {
 
 		if (root == null) return null;
 
@@ -71,14 +76,14 @@ class BinarySearchTree<T extends Comparable<T>> {
 	}
 
 
-	void traverse() {
+	public void traverse() {
 		System.out.print("\nTree: ");
 		preOrder(root);
 		System.out.println();
 	}
 
 
-	void preOrder(TreeNode root) {
+	public void preOrder(TreeNode root) {
 
 		if (root == null) return;
 
@@ -88,7 +93,7 @@ class BinarySearchTree<T extends Comparable<T>> {
 	}
 
 
-	void levelOrder() {
+	public void levelOrder() {
 
 		if (root == null) return;
 

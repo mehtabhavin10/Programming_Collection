@@ -1,13 +1,16 @@
+package DS.TreeDS;
+
 import java.util.*;
 
-class Heap<T extends Comparable<T>> {
 
-	List<T> heap;
-	int index;
-	boolean minHeap;
+public class Heap<T extends Comparable<T>> {
+
+	private List<T> heap;
+	private int index;
+	private boolean minHeap;
 
 
-	Heap() {
+	public Heap() {
 
 		heap =  new ArrayList<>();
 		heap.add(null);
@@ -16,7 +19,7 @@ class Heap<T extends Comparable<T>> {
 	}
 
 
-	Heap(boolean forMaxHeap) {
+	public Heap(boolean forMaxHeap) {
 
 		heap = new ArrayList<>();
 		heap.add(null);
@@ -27,7 +30,7 @@ class Heap<T extends Comparable<T>> {
 
 
 
-	void add(T val) {
+	public void add(T val) {
 
 		// if (index == size) {
 
@@ -47,7 +50,7 @@ class Heap<T extends Comparable<T>> {
 	}
 
 
-	T remove() {
+	public T remove() {
 
 		if (index == 1) return null;
 
@@ -84,12 +87,12 @@ class Heap<T extends Comparable<T>> {
 
 
 
-	T peek() {
+	public T peek() {
 		return heap.get(1);
 	}
 
 
-	boolean isEmpty() {
+	public boolean isEmpty() {
 		return index == 1;
 	}
 
@@ -105,7 +108,7 @@ class Heap<T extends Comparable<T>> {
 	// }
 
 
-	void swap(int i, int j) {
+	private void swap(int i, int j) {
 
 		T tmp = heap.get(i);
 		heap.set(i, heap.get(j));
@@ -113,11 +116,11 @@ class Heap<T extends Comparable<T>> {
 	}
 
 
-	boolean lessThan(T a, T b) {
+	private boolean lessThan(T a, T b) {
 		return a.compareTo(b) == -1;
 	}
 
-	boolean greaterThan(T a, T b) {
+	private boolean greaterThan(T a, T b) {
 		return a.compareTo(b) == 1;
 	}
 }

@@ -1,18 +1,20 @@
+package DS.TrieDS;
+
 import java.util.*;
 
-class Trie {
+public class Trie {
 
-	Trie[] chars;
-	boolean eow;
+	private Trie[] chars;
+	private boolean eow;
 
-	Trie() {
+	public Trie() {
 
 		chars = new Trie[26];
 		eow = false;
 	}
 
 
-	void insert(String s) {
+	public void insert(String s) {
 
 		Trie root = this;
 		int i;
@@ -28,7 +30,7 @@ class Trie {
 	}
 
 
-	boolean search(String s) {
+	public boolean search(String s) {
 
 		Trie root = this;
 		int i;
@@ -44,7 +46,7 @@ class Trie {
 	}
 
 
-	boolean prefix(String s) {
+	public boolean prefix(String s) {
 
 		Trie root = this;
 		int i;
@@ -60,7 +62,7 @@ class Trie {
 	}
 
 
-	List<String> suggest(String s) {
+	public List<String> suggest(String s) {
 
 		Trie root = this;
 		int i;
@@ -83,7 +85,7 @@ class Trie {
 	}
 
 
-	void generate(Trie root, List<String> op, String s) {
+	private void generate(Trie root, List<String> op, String s) {
 
 		boolean lastNode = true;
 

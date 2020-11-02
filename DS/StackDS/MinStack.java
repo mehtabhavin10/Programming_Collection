@@ -1,46 +1,48 @@
-class MinStack<T extends Comparable<T>> {
+package DS.StackDS;
 
-	Stack<T> valueStk, minStk;
+public class MinStack<T extends Comparable<T>> {
+
+	private Stack<T> valueStk, minStk;
 
 
-	MinStack() {
+	public MinStack() {
 
 		valueStk = new Stack<>();
 		minStk = new Stack<>();
 	}
 
-	MinStack(int max) {
+	public MinStack(int max) {
 
 		valueStk = new Stack<>(max);
 		minStk = new Stack<>(max);
 	}
 
 
-	T getMin() {
+	public T getMin() {
 		return minStk.peek();
 	}
 
 
-	void push(T val) {
+	public void push(T val) {
 
 		valueStk.push(val);
 		if (minStk.isEmpty() || minStk.peek().compareTo(val) > 0) minStk.push(val);
 	}
 
 
-	T pop() {
+	public T pop() {
 
 		if (minStk.peek().compareTo(valueStk.peek()) == 0) minStk.pop();
 		return valueStk.pop();
 	}
 
 
-	boolean isEmpty() {
+	public boolean isEmpty() {
 		return valueStk.isEmpty();
 	}
 
 
-	T peek() {
+	public T peek() {
 		return valueStk.peek();
 	}
 }

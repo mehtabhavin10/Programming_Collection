@@ -1,24 +1,28 @@
-class Stack<T> {
+package DS.StackDS;
 
-	LinkedList<T> linkedList;
+import DS.LinkedListDS.LinkedList;
 
-	Stack() {
+public class Stack<T> {
+
+	private LinkedList<T> linkedList;
+
+	public Stack() {
 
 		linkedList = new LinkedList<>();
 	}
 
-	Stack(int max) {
+	public Stack(int max) {
 
 		linkedList = new LinkedList<>(max);
 	}
 
-	void push(T data) {
+	public void push(T data) {
 
 		linkedList.insertBegin(data);
 	}
 
 
-	T pop() {
+	public T pop() {
 
 		T op = linkedList.get(0);
 		linkedList.deleteBegin();
@@ -26,19 +30,19 @@ class Stack<T> {
 	}
 
 
-	T peek() {
+	public T peek() {
 
 		if (isEmpty()) return null;
 		return linkedList.get(0);
 	}
 
 
-	boolean isEmpty() {
+	public boolean isEmpty() {
 
 		return linkedList.isEmpty();
 	}
 
-	int getSize() {
+	public int getSize() {
 		return linkedList.getSize();
 	}
 }
