@@ -12,14 +12,14 @@ class RemoveClassFiles {
 
 		File file = new File(name);
 
-		File[] allFiles = file.list();
+		for (File allFiles : file.listFiles()) {
 
-		for (int i = 0; i < allFiles.length; i++) {
+			String fileName = allFiles.getName();
 
-			if (allFiles[i].isDirectory()) checkAllFiles(name + "/" + allFiles[i]);
-			else if (pes.endsWith(".class")) {
+			if (allFiles.isDirectory()) checkAllFiles(name + "/" + fileName);
+			else if (fileName.endsWith(".class")) {
 				// and deletes
-				boolean success = (new File(allFiles[i]).delete());
+				boolean success = allFiles.delete();
 			}
 		}
 	}
