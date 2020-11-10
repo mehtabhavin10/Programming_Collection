@@ -1,3 +1,7 @@
+package DS;
+
+import DS.TreeDS.*;
+
 class DriverCode {
 
 	public static void main(String[] args) {
@@ -5,21 +9,17 @@ class DriverCode {
 
 		int[] a = {10, 8, 7, 9, 12, 11, 13};
 
-		BinarySearchTree<Integer> bst = new BinarySearchTree<>();
 
-		for (Integer i : a) bst.insert(i);
-		bst.traverse();
+		CodecTree<Integer> codec = new CodecTree<>();
 
-		bst.levelOrder();
+		String ip = "";
 
-		bst.delete(11);
-		bst.traverse();
+		for (int i = a.length - 1; i >= 0; i--) ip = a[i] + "," + ip;
 
-		bst.delete(12);
-		bst.traverse();
+		System.out.println(ip);
 
-		bst.delete(8);
-		bst.traverse();
+		TreeNode<Integer> root = codec.deserialize(ip);
 
+		System.out.println(codec.serialize(root));
 	}
 }
