@@ -4,6 +4,23 @@ import DS.GraphDS.GraphNode;
 import DS.QueueDS.Queue;
 import java.util.*;
 
+
+/*
+
+7
+a b c d e f g
+7
+b a
+b c
+b f
+c d
+e d
+e f
+f g
+a
+
+*/
+
 class GraphTrav {
 
 	public static void main(String[] args) {
@@ -34,7 +51,7 @@ class GraphTrav {
 			GraphNode dest = graph.get(v);
 
 			src.addAdj(dest);
-			dest.addAdj(src);
+			// dest.addAdj(src);
 		}
 
 		char src = in.nextLine().trim().split(" ")[0].charAt(0);
@@ -65,7 +82,11 @@ class GraphTrav {
 		System.out.print("Has Cycle Directed: " + DetectCycleDirected.hasCycle(graph.get(src), new HashSet<>(), new HashSet<>()));
 
 		System.out.println("\n");
-		System.out.print("Has Cycle UnDirected: " + DetectCycleDirected.hasCycle(graph.get(src), new HashSet<>(), new HashSet<>()));
+		System.out.print("Has Cycle UnDirected: " + DetectCycleUnDirected.hasCycle(graph));
+
+		System.out.println("\n");
+		System.out.print("Topological Sort: ");
+		Topological.sort(graph);
 
 	}
 
