@@ -4,6 +4,20 @@ import DS.GraphDS.GraphNode;
 import DS.StackDS.Stack;
 import java.util.*;
 
+/*
+
+5
+0 1 2 3 4
+5
+2 1
+1 0
+0 2
+0 3
+3 4
+1
+
+*/
+
 
 class KosarajuSCC {
 
