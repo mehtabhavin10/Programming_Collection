@@ -1,3 +1,22 @@
+
+/*
+
+1. Find largest index i, such that A[i] < A[i+1]
+	If not found than no next greater possible!
+2. Find largest index j, such that A[j] > A[i] & j>=i
+3. Swap A[i], A[j]
+4. Reverse A from i+1 to n
+
+
+
+*/
+
+
+
+
+
+
+
 class NextPerm {
 
 	public static void main(String[] args) {
